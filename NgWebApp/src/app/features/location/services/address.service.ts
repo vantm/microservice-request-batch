@@ -11,7 +11,7 @@ export class AddressService {
   constructor(private readonly http: HttpClient) {}
 
   list(): Observable<Address[]> {
-    return this.http.get<Address[]>(`${Environment.AddressApi}/addresses`).pipe(
+    return this.http.get<Address[]>(`${Environment.BaseUrl}/addresses`).pipe(
       catchError((e, c) => {
         console.error(
           'An error had occurred when getting addresses. Error: %o',
@@ -24,7 +24,7 @@ export class AddressService {
 
   add(data: AddAddress) {
     return this.http
-      .post<Address>(`${Environment.AddressApi}/addresses`, data)
+      .post<Address>(`${Environment.BaseUrl}/addresses`, data)
       .pipe(
         catchError((e, c) => {
           console.error(

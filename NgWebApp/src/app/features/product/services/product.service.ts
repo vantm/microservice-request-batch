@@ -11,7 +11,7 @@ export class ProductService {
   constructor(private readonly http: HttpClient) {}
 
   list(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${Environment.ProductApi}/products`).pipe(
+    return this.http.get<Product[]>(`${Environment.BaseUrl}/products`).pipe(
       catchError((e, c) => {
         console.error(
           'An error was occurred when getting products. Error: %o',
@@ -24,7 +24,7 @@ export class ProductService {
 
   add(data: AddProduct): Observable<Product> {
     return this.http
-      .post<Product>(`${Environment.ProductApi}/products`, data)
+      .post<Product>(`${Environment.BaseUrl}/products`, data)
       .pipe(
         catchError((e, c) => {
           console.error(

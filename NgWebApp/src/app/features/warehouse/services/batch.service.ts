@@ -11,7 +11,7 @@ export class BatchService {
   constructor(private readonly http: HttpClient) {}
 
   list(): Observable<Batch[]> {
-    return this.http.get<Batch[]>('http://localhost:5067/batches').pipe(
+    return this.http.get<Batch[]>(`${Environment.BaseUrl}/batches`).pipe(
       catchError((e, c) => {
         console.error(
           'An error was occurred when getting batches. Error: %o',
@@ -23,7 +23,7 @@ export class BatchService {
   }
 
   add(data: AddBatch): Observable<Batch> {
-    return this.http.post<Batch>(`${Environment.BatchApi}/batches`, data).pipe(
+    return this.http.post<Batch>(`${Environment.BaseUrl}/batches`, data).pipe(
       catchError((e, c) => {
         console.error(
           'An error was occurred when creating a batch. Error: %o',

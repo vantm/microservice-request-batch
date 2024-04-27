@@ -1,5 +1,4 @@
 using ApiDefaults;
-using BatchApi;
 using BatchApi.Core;
 using BatchApi.Core.Impl;
 using Carter;

@@ -11,6 +11,7 @@ import {
   tap,
   timer,
 } from 'rxjs';
+import { Environment } from '../../../environments/environment';
 
 export interface BatchRequest {
   path: string;
@@ -52,7 +53,7 @@ export class BatchService {
     this.res$ = this.path$.pipe(
       buffer(this.path$.pipe(exhaustMap(() => timer(100)))),
       mergeMap((x) =>
-        http.post<BatchReply>('http://localhost:5188/batch', { requests: x })
+        http.post<BatchReply>(`${Environment.BaseUrl}/batch`, { requests: x })
       ),
       catchError((err, caught) => {
         console.log('Error: %o', err);
