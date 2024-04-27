@@ -1,0 +1,35 @@
+procs:
+  api:
+    cmd:
+      - dotnet
+      - watch
+      - --project
+      - BuyItApi/BuyItApi.csproj
+
+  reqbatch:
+    cmd:
+      - dotnet
+      - watch
+      - --project
+      - BatchApi/BatchApi.csproj
+
+  location:
+    cmd:
+      - dotnet
+      - watch
+      - --project
+      - LocationApi/LocationApi.csproj
+
+  product:
+    cmd:
+      - dotnet
+      - watch
+      - --project
+      - ProductApi/ProductApi.csproj
+
+  warehouse:
+    cmd:
+      - dotnet
+      - watch
+      - --project
+      - WarehouseApi/WarehouseApi.csproj

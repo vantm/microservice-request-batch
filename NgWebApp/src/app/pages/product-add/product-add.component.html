@@ -1,0 +1,38 @@
+<div class="form" [formGroup]="productForm">
+  <div>
+    <label for="name">Name</label>
+    <br />
+    <input formControlName="name" />
+    <div *ngIf="name && name.invalid && (name.dirty || name.touched)">
+      <div *ngIf="name.errors?.['required']">
+        <small>The field is required</small>
+      </div>
+      <div *ngIf="name.errors?.['minlength']">
+        <small>Invalid min length</small>
+      </div>
+      <div *ngIf="name.errors?.['maxlength']">
+        <small>Invalid max length</small>
+      </div>
+    </div>
+  </div>
+  <div>
+    <label for="price">Price</label>
+    <br />
+    <input formControlName="price" type="number" />
+    <div *ngIf="price && price.invalid && (price.dirty || price.touched)">
+      <div *ngIf="price.errors?.['required']">
+        <small>The field is required</small>
+      </div>
+      <div *ngIf="price.errors?.['min']">
+        <small>Invalid min</small>
+      </div>
+      <div *ngIf="price.errors?.['max']">
+        <small>Invalid max</small>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button (click)="onAdd()">Add</button>
+  </div>
+  <div *ngIf="message">{{ message }}</div>
+</div>

@@ -1,0 +1,24 @@
+ul {
+  list-style: none;
+  padding: 0;
+
+  display: flex;
+  gap: 0.25rem;
+
+  li {
+    display: block;
+
+    & > a {
+      padding: 0.25rem;
+      text-decoration: none;
+      border: 1px solid lightgray;
+    }
+
+    & > a.active {
+      background-color: light-dark(
+        var(--light-button-background-color),
+        var(--dark-button-background-color)
+      );
+    }
+  }
+}

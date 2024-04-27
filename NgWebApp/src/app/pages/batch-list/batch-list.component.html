@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Key</th>
+      <th>Price</th>
+      <th>ProductId</th>
+      <th>WarehouseId</th>
+      <th>Created At</th>
+      <th>Updated At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let batch of batches">
+      <td>{{ batch.id }}</td>
+      <td>{{ batch.key }}</td>
+      <td>{{ batch.quantity }}</td>
+      <td>{{ batch.productId }}</td>
+      <td>{{ batch.warehouseId }}</td>
+      <td>{{ batch.createdAt }}</td>
+      <td>{{ batch.updatedAt }}</td>
+    </tr>
+  </tbody>
+</table>

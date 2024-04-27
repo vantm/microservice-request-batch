@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Address</th>
+      <th>District</th>
+      <th>City</th>
+      <th>Created At</th>
+      <th>Updated At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let address of addresses">
+      <td>{{ address.id }}</td>
+      <td>{{ address.addressText }}</td>
+      <td>{{ address.district }}</td>
+      <td>{{ address.city }}</td>
+      <td>{{ address.createdAt }}</td>
+      <td>{{ address.updatedAt }}</td>
+    </tr>
+  </tbody>
+</table>

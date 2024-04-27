@@ -1,0 +1,64 @@
+<div class="form" [formGroup]="addressForm">
+  <div>
+    <label for="address">Address</label>
+    <br />
+    <input formControlName="addressText" />
+    <div
+      *ngIf="
+        addressText &&
+        addressText.invalid &&
+        (addressText.dirty || addressText.touched)
+      "
+    >
+      <div *ngIf="addressText.errors?.['required']">
+        <small>The field is required</small>
+      </div>
+      <div *ngIf="addressText.errors?.['minlength']">
+        <small>Invalid min length</small>
+      </div>
+      <div *ngIf="addressText.errors?.['maxlength']">
+        <small>Invalid max length</small>
+      </div>
+    </div>
+  </div>
+  <div>
+    <label for="district">District</label>
+    <br />
+    <input formControlName="district" />
+    <div
+      *ngIf="
+        district && district.invalid && (district.dirty || district.touched)
+      "
+    >
+      <div *ngIf="district.errors?.['required']">
+        <small>The field is required</small>
+      </div>
+      <div *ngIf="district.errors?.['minlength']">
+        <small>Invalid min length</small>
+      </div>
+      <div *ngIf="district.errors?.['maxlength']">
+        <small>Invalid max length</small>
+      </div>
+    </div>
+  </div>
+  <div>
+    <label for="city">City</label>
+    <br />
+    <input formControlName="city" />
+    <div *ngIf="city && city.invalid && (city.dirty || city.touched)">
+      <div *ngIf="city.errors?.['required']">
+        <small>The field is required</small>
+      </div>
+      <div *ngIf="city.errors?.['minlength']">
+        <small>Invalid min length</small>
+      </div>
+      <div *ngIf="city.errors?.['maxlength']">
+        <small>Invalid max length</small>
+      </div>
+    </div>
+  </div>
+  <div>
+    <button (click)="onAdd()">Add</button>
+  </div>
+  <div *ngIf="message">{{ message }}</div>
+</div>

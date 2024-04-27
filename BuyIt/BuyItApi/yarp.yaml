@@ -1,0 +1,57 @@
+Yarp:
+    Routes:
+        batchApi:
+            ClusterId: batch
+            Match:
+                Path: "/batch"
+                Methods:
+                    - POST
+        location:
+            ClusterId: location
+            Match:
+                Path: "/addresses/{**all}"
+                Methods:
+                    - GET
+                    - POST
+        product:
+            ClusterId: product
+            Match:
+                Path: "/products/{**all}"
+                Methods:
+                    - GET
+                    - POST
+        warehouse:
+            ClusterId: warehouse
+            Match:
+                Path: "/warehouses/{**all}"
+                Methods:
+                    - GET
+                    - POST
+        batch:
+            ClusterId: warehouse
+            Match:
+                Path: "/batches/{**all}"
+                Methods:
+                    - GET
+                    - POST
+    Clusters:
+        batch:
+            Destinations:
+                batch/dest1:
+                    Address: http://localhost:5188
+                    Health: http://localhost:5188/hc
+        location:
+            Destinations:
+                location/dest1:
+                    Address: http://localhost:5195
+                    Health: http://localhost:5195/hc
+        product:
+            Destinations:
+                product/dest1:
+                    Address: http://localhost:5213
+                    Health: http://localhost:5213/hc
+        warehouse:
+            Destinations:
+                warehouse/dest1:
+                    Address: http://localhost:5067
+                    Health: http://localhost:5067/hc
